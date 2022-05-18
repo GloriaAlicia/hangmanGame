@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/normalize.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="shortcut icon" href="../Group 5.svg">
+    <title>Hangman Game</title>
+</head>
+<body>
+    <main class="container">
+        <section class="containerWord" id="gameBoard">
+            <form>
+                <input type="text" id="userText" autofocus pattern="[A-Z]">
+            </form>
+        </section>
+        <section class="sectionError">
+        </section>
+        <section class="buttons">
+            <button id="newWord">Nuevo Juego</button>
+            <a href="../index.html"><button>Desistir</button></a>
+        </section>
+        <!-- <p class="icomoon">siguiente</p> -->
+    </main>
+    <script src="../scripts/app.js"></script>
+</body>
+</html>

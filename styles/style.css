@@ -6,6 +6,9 @@ body{
 :root{
     --primary-color:rgb(22, 33, 133);
 }
+/* body{
+    background-color: rgb(71, 71, 71);
+} */
 .container{
     display: flex;
     justify-content: center;
@@ -17,7 +20,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 3vh 0;
+    padding-bottom: 0.5vh;
     flex-direction: column;
 }
 #userText{
@@ -42,7 +45,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5px 0 0 5px;
+    margin: 5px 0 0 1.2vw;
 }
 .underscore::after{
     content: "";
@@ -54,15 +57,20 @@ body{
     border-radius: 50px;
     background-color: var(--primary-color);
 }
-/*
-.underscore::before{
-  content:"";
-  position:absolute;
-  height:100%;
-  width:100%;
-  background:#fff;
+p{
+    color: var(--primary-color);
 }
-*/
+.sectionError{
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    justify-content: center;
+    padding: 10px 0;
+}
+.sectionError p{
+    padding: 0 5px;
+    margin: 0;
+}
 /***********buttons******************/
 .buttons button{
     background-color: #fff;
@@ -71,13 +79,34 @@ body{
     padding: 1vw;
     border-radius: 7px;
 }
-@media screen and (max-width:700px){
+/* button::after{
+    content: "\e90d"; estrella
+    content: "\e900"; es flecha
+} */
+@font-face {
+    font-family: "iconmoon";
+    src: url(../font/icomoon.woff2) format('woff2');
+    font-style: normal;
+}
+.icomoon{
+    font-display: auto;
+    font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 3rem;
+}
+.icomoon::after{
+    font-family: "iconmoon";
+    content: "\e900";
+}
+@media screen and (min-width:700px){
     #show{
         min-width: 50vw;
     }
+    .underscore::after{
+        width: 120%;
+    }
 }
 
-@media screen and (max-width:400px){
+@media screen and (min-width:400px){
     #show{
         min-width: 70vw;
     }
