@@ -14,7 +14,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
+    height: 95vh;
 }
 .containerWord{
     display: flex;
@@ -36,11 +36,13 @@ body{
     height: 30px;
     justify-content: center;
     margin-bottom: 3vh;
+    padding: 1vw 0;
 }
 .underscore{
     color: var(--primary-color);
     position:relative;
     width: 20px;
+    height: 30px;
     font-size: 30px;
     display: flex;
     justify-content: center;
@@ -72,6 +74,9 @@ p{
     margin: 0;
 }
 /***********buttons******************/
+button{
+    cursor: pointer;
+}
 .buttons button{
     background-color: #fff;
     border: solid 1px var(--primary-color);
@@ -106,8 +111,16 @@ p{
     }
 }
 
-@media screen and (min-width:400px){
+@media screen and (max-width:400px){
     #show{
         min-width: 70vw;
+    }
+    .currentWord{
+        padding: 3vw 0;
+    }
+}
+@media screen and (max-width:300px){
+    .currentWord{
+        padding: 7vw 0;
     }
 }

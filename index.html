@@ -3,14 +3,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./styles/normalize.css">
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/principal.css">
     <title>Principal</title>
 </head>
 <body>
-    <section class="container buttons">
-        <a href="./subpages/play.html"><button>Nuevo Juego</button></a>
-        <button>Agregar Nueva Palabra</button>
+    <main>
+        <h1>Bienvenido</h1>
+        <article class="container">
+            <a href="./subpages/play.html"><button>Nuevo Juego</button></a>
+            <button id="addWord">Agregar Nueva Palabra</button>
+        </article>
+    </main>
+
+    <section class="windowModal">
+        <article class="modal hidden">
+            <div class="content">
+                <label for="word">Agregar palabra</label>
+                <form>
+                    <input type="text" id="word" maxlength="10" placeholder="TEXTO EN MAYÚSCULAS" name="newWord">
+                </form>
+                <p id="visualWarning"></p>
+                <div class="buttons">
+                    <button id="add">Guardar</button>
+                    <button id="cancel">Cancelar</button>
+                </div>
+            </div>
+        </article>
+        <article class="alerts hidden">
+            <p id="visualAlerts">prueba</p>
+        </article>
     </section>
+    <script src="./scripts/words.js"></script>
+    <script src="./scripts/gradient.js"></script>
+    <script src="./scripts/addWord.js"></script>
 </body>
 </html>

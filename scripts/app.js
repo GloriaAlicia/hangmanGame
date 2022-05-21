@@ -1,5 +1,4 @@
 //----------------------escoger palabra al azar--------------------------
-    let words = ["FELIZ","DIFICIL","FACIL","PERSISTENCIA","JAVASCRIPT","GUARDAR","AZAR","ARBOL","PROGRAMACION","INGENIO","ASOMBRO","DIBUJAR","ETIQUETA","CASCADA","CORRECTO","INCORRECTO","FUNCION","CLASES","OBJETO","APRENDER","ESFUERZO","PACIENCIA","SATISFACCION","ANALISIS","ALURA","REEMPLAZAR","NUMEROS","DATOS","PERFUME"];
     
 let buttonNewWord = document.getElementById("newWord");
 buttonNewWord.addEventListener("click",playAgain);
@@ -12,12 +11,9 @@ function newWord(){
     let split = Array.from(currentWord);
     return split
 }
-let split = newWord();
-let wrongs = [];
 
 function playAgain(){
-    split = newWord();
-    console.log(split);
+    let split = newWord();
     dynamicWord(split);
     let antiqueLabel = document.querySelector("label");
     if(antiqueLabel != null){
@@ -32,8 +28,10 @@ function playAgain(){
     userText.oninput = (event)=>{
         event.preventDefault();
         showLetters(split,wrongs);
+        winOrLose(wrongs);
     }
 }
+playAgain()
 //-----------------------subir palabra----------------------------------
     
 function dynamicWord(split){
@@ -51,14 +49,9 @@ function dynamicWord(split){
     }
         return letters;
 }
-gameBoard.appendChild(dynamicWord(split));
       
-//-------------------------mostrar letras correctas--------------------------------
-userText.oninput = (event)=>{
-    event.preventDefault();
-    showLetters(split,wrongs);
-}
-    
+//-------------------------mostrar letras--------------------------------
+
 function showLetters(split,wrongs){
     let writing = userText.value.toUpperCase();
     let actualId = 0;
@@ -75,10 +68,10 @@ function showLetters(split,wrongs){
         } else {
             letterNoIncluded++
             if(letterNoIncluded == split.length && (/[A-Z]/).test(writing) && !wrongs.includes(writing)){
+                wrongs.push(writing);
                 let errorLetter = document.createElement("p");
                 errorLetter.textContent = writing;
                 sectionError.appendChild(errorLetter);
-                wrongs.push(writing);
             }
         }
         userText.value = "";
