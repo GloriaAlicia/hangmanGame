@@ -15,6 +15,7 @@ save.addEventListener("click",(event)=>{
     let text = document.getElementById("word").value;
     event.preventDefault()
     saveWords(text);
+    document.getElementById("visualWarning").textContent = "";
 })
 word.addEventListener("input",(event)=>{
     let text = document.getElementById("word").value;

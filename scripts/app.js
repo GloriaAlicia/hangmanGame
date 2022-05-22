@@ -30,9 +30,10 @@ function playAgain(){
         showLetters(split,wrongs);
         winOrLose(wrongs);
     }
+    see.textContent = "¿Empezamos?";
 }
 playAgain()
-//-----------------------subir palabra----------------------------------
+//----------------------mostrar palabra en pantalla----------------------------------
     
 function dynamicWord(split){
     let letters = document.createElement("label");

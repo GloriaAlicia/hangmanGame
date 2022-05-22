@@ -1,0 +1,199 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    outline-width: 0;
+    border: none;
+}
+:root{
+    --black:#032f32;
+    --correct:#50bfc8;
+    --light-correct: #50bec86e;
+    --primary-color: #ee8475;
+    --warning: #e25b45;
+    --light:#fac172;
+    --sunset:#fac17280;
+    --second-light:#ee83758e;
+}
+/* body{
+    background-color: rgb(71, 71, 71);
+} */
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    background-image: radial-gradient(farthest-side at 100% 30%, var(--second-light)0%,rgba(0,0,0,0)100%);
+}
+.playing{
+    min-width: 15rem;
+    padding: 0 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+/*******************play***********************/
+.containerWord{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 0.5vh;
+    flex-direction: column;
+}
+#userText{
+    opacity: 0;
+}
+#show{
+    max-width: 55vw;
+    min-width: 30vw;
+}
+.currentWord{
+    font-family: "Work Sans";
+    display: flex;
+    flex-wrap: wrap;
+    height: 30px;
+    justify-content: center;
+    margin-bottom: 3vh;
+    padding: 1vw 0;
+}
+.underscore{
+    color: var(--black);
+    position:relative;
+    width: 20px;
+    height: 30px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0 0 1.2vw;
+}
+.underscore::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2.5px;
+    top: 100%;
+    left: 0;
+    border-radius: 50px;
+    border: solid 1px var(--black);
+    background-color: transparent;
+}
+.sectionError{
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    justify-content: center;
+    padding: 10px 0;
+}
+.sectionError p{
+    color: var(--black);
+    padding: 0 5px;
+    margin: 0;
+}
+/*******************muñeco*********************/
+.munhieco{
+    margin:0 5vw 0 3vw;
+    padding: 2rem;
+    border: solid 1px var(--black);
+    border-radius: 50% 50% 0 0;
+}
+.munhieco img{
+    height: 40vh;
+}
+/***********buttons******************/
+button{
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--black);
+    border: none;
+}
+.buttons{
+    width: 15rem;
+    border-top: solid 1px var(--black);
+    padding: 1vh 0;
+    border-bottom: solid 1px var(--black);
+    position: relative;
+    display: flex;
+    justify-content:space-around;
+}
+.buttons::after{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    left: 50%;
+    top:0;
+    background-color:#3F51B5;
+}
+#newWord{
+    width: 7.5rem;
+    transition: all 0.3s ease-in-out;
+}
+#newWord:hover{
+    font-weight: bold;
+}
+#losing{
+    width: 7.5rem;
+    transition: all 0.3s ease-in-out;
+    border: none;
+    font-style: italic;
+    color: var(--warning);
+}
+#losing:hover{
+    font-weight: bold;
+}
+/*******************vidas********************/
+.wrapper-lifes{
+    font-family: "Work Sans";
+    color: var(--black);
+    margin:0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 10vh;
+}
+.lifes{
+    font-size: 2rem;
+}
+.wrapper-lifes::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(farthest-side at 50% 100%, var(--light-correct),rgba(0,0,0,0));
+    z-index: -1;
+}
+/***********responsive******************/
+@media screen and (min-width:700px){
+    #show{
+        min-width: 50vw;
+    }
+    .underscore::after{
+        width: 120%;
+    }
+    .wrapper-lifes{
+        width: 80%;
+    } 
+}
+@media screen and (max-width:500px){
+    .container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+}
+
+@media screen and (max-width:400px){
+    #show{
+        min-width: 70vw;
+    }
+    .currentWord{
+        padding: 3vw 0;
+    }
+}
+@media screen and (max-width:300px){
+    .currentWord{
+        padding: 7vw 0;
+    }
+}

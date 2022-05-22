@@ -1,6 +1,12 @@
 :root{
     font-family: Arial, Helvetica, sans-serif;
-    --warning: #f00;
+    --black:#032f32;
+    --correct:#50bfc8;
+    --light-correct: #50bec86e;
+    --primary-color: #ee8475;
+    --warning: #e25b45;
+    --light:#fac172;
+    --second-light:#ee83758e;
 }
 h1{
     font-family: 'Work Sans';
@@ -95,7 +101,6 @@ input{
 .alerts{
     position: fixed;
     background-color: #fff;
-    height: 10vh;
     width: 40vw;
     padding: 3vw;
     border-radius: 10px;
@@ -111,10 +116,14 @@ input{
     animation-name: show;
     animation-duration: 0.38s;
 }
+.alerts{
+    background-color: #fff;
+}
 .alerts p{
     font-family: "Work Sans";
     font-style: italic;
     font-size: 1.3rem;
+    text-align: center;
 }
 .hidden{
     display: none;

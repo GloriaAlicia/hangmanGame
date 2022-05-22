@@ -3,31 +3,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="../styles/normalize.css">
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/playStyles.css">
     <link rel="shortcut icon" href="../Group 5.svg">
     <title>Hangman Game</title>
 </head>
 <body>
-    <section>
+    <main class="container">
+        <section class="munhieco">
+            <img src="../assets/munheco.png" alt="prueba de muñeco" height="320">
+        </section>
+        <section class="playing">
+            <section class="containerWord" id="gameBoard">
+                <form>
+                    <input type="text" id="userText" autofocus pattern="[A-Z]">
+                </form>
+            </section>
+            <section class="sectionError">
+            </section>
+            <section class="buttons">
+                <button id="newWord">Nuevo Juego</button>
+                <a href="../index.html"><button id="losing">Desistir</button></a>
+            </section>
+        </section>
+    </main>
+    <section class="wrapper-lifes">
         <span class="lifes"></span>
     </section>
-    <main class="container">
-        <section class="containerWord" id="gameBoard">
-            <form>
-                <input type="text" id="userText" autofocus pattern="[A-Z]">
-            </form>
-        </section>
-        <section class="sectionError">
-        </section>
-        <section class="buttons">
-            <button id="newWord">Nuevo Juego</button>
-            <a href="../index.html"><button>Desistir</button></a>
-        </section>
-        <!-- <p class="icomoon">siguiente</p> -->
-    </main>
     <script src="../scripts/words.js"></script>
     <script src="../scripts/winOrLose.js"></script>
     <script src="../scripts/app.js"></script>
+    <script src="../scripts/gradient.js"></script>
 </body>
 </html>
