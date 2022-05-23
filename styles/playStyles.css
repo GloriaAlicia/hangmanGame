@@ -11,7 +11,7 @@ body{
     --warning: #e25b45;
     --light:#fac172;
     --sunset:#fac17280;
-    --second-light:#ee83758e;
+    --second-light:#ee75bc8e;
 }
 /* body{
     background-color: rgb(71, 71, 71);
@@ -52,7 +52,7 @@ body{
     flex-wrap: wrap;
     height: 30px;
     justify-content: center;
-    margin-bottom: 3vh;
+    /* margin-bottom: 3vh; */
     padding: 1vw 0;
 }
 .underscore{
@@ -91,13 +91,14 @@ body{
 }
 /*******************muñeco*********************/
 .munhieco{
+    position: relative;
     margin:0 5vw 0 3vw;
     padding: 2rem;
     border: solid 1px var(--black);
     border-radius: 50% 50% 0 0;
 }
 .munhieco img{
-    height: 40vh;
+    height: 15rem;
 }
 /***********buttons******************/
 button{
@@ -122,7 +123,7 @@ button{
     width: 1px;
     left: 50%;
     top:0;
-    background-color:#3F51B5;
+    background-color:var(--black);
 }
 #newWord{
     width: 7.5rem;
@@ -155,6 +156,17 @@ button{
 .lifes{
     font-size: 2rem;
 }
+.win{
+    position: relative;
+}
+.win::before{
+    content: "¡Felicidades!";
+    font-family: "Work Sans";
+    font-size: 1rem;
+    position: absolute;
+    top: 30px;
+    left: 45%;
+}
 .wrapper-lifes::before{
     content: "";
     position: absolute;
@@ -162,6 +174,70 @@ button{
     height: 100%;
     background-image: radial-gradient(farthest-side at 50% 100%, var(--light-correct),rgba(0,0,0,0));
     z-index: -1;
+}
+/*ganar*/
+.particles{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.particles > span{
+    position: absolute;
+}
+.particle1{
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: transparent;
+    border: solid 1px var(--black);
+}
+.particle2{
+    width: 0.5rem;
+    height: 1rem;
+    border-radius: 40%;
+    background-color: transparent;
+    border: solid 1px var(--black);
+}
+.particle3{
+    width: 1rem;
+    height: 1rem;
+    border-radius: 40%;
+    background-color: var(--correct);
+}
+.particle4{
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    background-color: var(--light-correct);
+}
+.particle5{
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50% 50% 0 0;
+    background-color: var(--primary-color);
+}
+.particle6{
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50% 50% 0 0;
+    background-color: var(--correct);
+}
+.particle7{
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: solid 1.2px var(--primary-color);
+}
+.particle8,.particle9,.particle10{
+    color: var(--correct);
+    font-size: 25px;
+    font-family: "Work Sans";
+    font-weight: bold;
+}
+/***********responsive******************/
+.hidden{
+    display: none;
 }
 /***********responsive******************/
 @media screen and (min-width:700px){
@@ -181,7 +257,6 @@ button{
         justify-content: center;
         align-items: center;
     }
-    
 }
 
 @media screen and (max-width:400px){

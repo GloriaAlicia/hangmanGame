@@ -31,6 +31,11 @@ function playAgain(){
         winOrLose(wrongs);
     }
     see.textContent = "¿Empezamos?";
+    see.classList.remove("win");
+    particles.classList.add("hidden");
+    emoji.classList.add("hidden");
+    see.classList.remove("losing");
+    see.style.fontSize = "2rem"
 }
 playAgain()
 //----------------------mostrar palabra en pantalla----------------------------------
