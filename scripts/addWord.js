@@ -1,11 +1,11 @@
 let addWord = document.getElementById("addWord");
 addWord.addEventListener("click",()=>{
-    document.querySelector(".modal").classList.remove("hidden");
+    document.querySelector(".windowModal").classList.remove("hidden");
 })
 
 let cancel = document.getElementById("cancel");
 cancel.addEventListener("click",()=>{
-    document.querySelector(".modal").classList.add("hidden");
+    document.querySelector(".windowModal").classList.add("hidden");
     document.querySelector("form").reset();
 })
 let word = document.getElementById("word");
@@ -53,7 +53,7 @@ function saveWords(text){
         showAlerts(saving);
 
         words.push(text.toUpperCase());
-        document.querySelector(".modal").classList.add("hidden");
+        document.querySelector(".windowModal").classList.add("hidden");
         document.querySelector("form").reset();
     } 
     if((/[^A-Z]/g).test(text)) {
