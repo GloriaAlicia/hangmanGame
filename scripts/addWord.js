@@ -9,7 +9,7 @@ cancel.addEventListener("click",()=>{
     document.querySelector("form").reset();
 })
 let word = document.getElementById("word");
-/******************listeners */
+/******************funcionamiento en eventos click e input */
 let save = document.getElementById("add");
 save.addEventListener("click",(event)=>{
     let text = document.getElementById("word").value;
@@ -22,7 +22,6 @@ word.addEventListener("input",(event)=>{
     special(event,text)
     
 })
-
 /******************escribiendo**************** */
 
 function special(event,text){
@@ -43,24 +42,28 @@ function special(event,text){
     
 }
 /******************guardando**************** */
+let prewords = ["FELIZ","DIFICIL","FACIL","JAVASCRIPT","GUARDAR","AZAR","INGENIO","ASOMBRO","FUNCION","CLASES","OBJETO","APRENDER","ESFUERZO","PACIENCIA","ANALISIS"];
+let words = JSON.parse(localStorage.getItem("allWords")) || prewords;
+
 function saveWords(text){
     if((text.length == 0) || (word.value === " ")){
-        let contentText = "Agregue un texto";
-        showAlerts(contentText);
+        showAlerts("Agregue un texto");
     }
     if((/[A-Z]/g).test(text) && !(/[^A-Z]/g).test(text)){
-        let saving = "Guardado";
-        showAlerts(saving);
-
-        words.push(text.toUpperCase());
+        saveLocalStorage(text.toUpperCase());
         document.querySelector(".windowModal").classList.add("hidden");
         document.querySelector("form").reset();
     } 
     if((/[^A-Z]/g).test(text)) {
-        let only = "solo letras mayusculas, sin acentos o carácteres especiales";
-        showAlerts(only);
+        showAlerts("solo mayusculas, sin carácteres especiales");
         document.querySelector("form").reset();
     }
+}
+function saveLocalStorage(text){
+    let allWords = words;
+    allWords.push(text);
+    let saveOneMore = JSON.stringify(allWords);
+    localStorage.setItem("allWords",saveOneMore);
 }
 /******************alerts****************************/
 function showAlerts(textToEdit){

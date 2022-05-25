@@ -4,7 +4,9 @@ let buttonNewWord = document.getElementById("newWord");
 buttonNewWord.addEventListener("click",playAgain);
 let gameBoard = document.getElementById("gameBoard");
 let userText = document.getElementById("userText");
-             
+let prewords = ["FELIZ","DIFICIL","FACIL","JAVASCRIPT","GUARDAR","AZAR","INGENIO","ASOMBRO","FUNCION","CLASES","OBJETO","APRENDER","ESFUERZO","PACIENCIA","ANALISIS"];
+let words = JSON.parse(localStorage.getItem("allWords")) || prewords;
+         
 function newWord(){
     let currentWord = words[Math.floor(Math.random()*words.length)];
     console.log(currentWord);

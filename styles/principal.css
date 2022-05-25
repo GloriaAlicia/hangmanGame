@@ -3,13 +3,48 @@
     --black:#032f32;
     --correct:#50bfc8;
     --light-correct: #50bec86e;
+    --blue-blurred:#50bec849;
     --primary-color: #ee8475;
     --warning: #e25b45;
     --light:#fac172;
     --second-light:#ee83758e;
+    --border-radius:10px;
 }
 h1{
     font-family: 'Work Sans';
+    margin: 2vw 0 2vw 0;
+    color: var(--black);
+}
+main{
+    background-image: radial-gradient(farthest-side at 30% 0%, var(--correct),rgba(0,0,0,0));
+}
+.wrapper-page{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+    margin: 0 auto;
+    height: 58vh;
+}
+.advices h2{
+    font-family: 'Work Sans';
+    color: var(--black);
+}
+.advices{
+    border-radius: var(--border-radius);
+    background-image: radial-gradient(farthest-side at 30% 0%, rgba(255, 255, 255, 0.452)0%,rgba(0,0,0,0)100%),
+    radial-gradient(farthest-side at 100% 90%, var(--blue-blurred) 0%,rgba(0,0,0,0)100%);
+   
+    max-width: 60%;
+    padding: 1vw;
+    margin:0 2vw;
+}
+ul{
+    margin: 0;
+}
+ul li{
+    margin: 1.2vw 0 8px 0;
+    color: var(--black);
 }
 /***********************buttons************************/
 .container{
@@ -17,6 +52,8 @@ h1{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 10px;
+    padding: 1vw;
 }
 button{
     border: none;
@@ -24,9 +61,74 @@ button{
     background-color: transparent;
 }
 .container button{
-    width: 90vw;
-    border-bottom: solid 1px #252525;
     padding: 1vw;
+    min-width: 25vw;
+}
+.buttons{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+#addWord{
+    color: var(--black);
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 18px 40px #e7e7e7;
+    transition: all 0.6s;
+}
+#addWord:hover{
+    position: relative;
+}
+.newGame{
+    box-shadow: 0 18px 60px var(--correct);
+    position: relative;
+    background-color: var(--correct);
+    border-radius: var(--border-radius);
+}
+.newGame button{
+    color: white;
+}
+.newGame:hover{
+    font-weight: bold;
+}
+.newGame::after{
+    content: "";
+    position:absolute;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background-color: var(--blue-blurred);
+    box-shadow: 0 0px 50px var(--blue-blurred), 
+                0 0px 20px var(--blue-blurred), 
+                0 0px 10px var(--blue-blurred),
+                 0 0px 10px var(--blue-blurred);
+    animation: gradient 2.8s infinite;
+}
+.blurred{
+    position:absolute;
+    width:15px;
+    height:15px;
+    border-radius:50%;
+    top:20px;
+    background-color: var(--blue-blurred);
+    box-shadow: 0 0px 50px var(--blue-blurred), 
+                0 0px 20px var(--blue-blurred), 
+                0 0px 10px var(--blue-blurred),
+                 0 0px 10px var(--blue-blurred);
+    animation: gradient 2.8s infinite;
+}
+@keyframes gradient {
+    0%{left:0px;transform: scale(1.4);}
+    20%{transform: scale(2);}
+    40%{transform: scale(0.6);}
+    70%{transform: scale(1.7);}
+    100%{transform: scale(1);left:90%;}
+}
+.buttons-modal{
+    display: flex;
+    gap:10px;
+    margin-top:1rem;
 }
 /****************window modal*********************/
 .windowModal{
@@ -49,10 +151,11 @@ button{
     position: fixed;
 
     background-color: white;
+    border-radius: var(--border-radius);
     box-shadow:  -14px 14px 43px #e0e0e0,
     14px -14px 43px #ffffff4d;
     height: 35vh;
-    width: 70vw;
+    width: 60vw;
     padding: 3vw;
 }
 .content{
@@ -60,10 +163,6 @@ button{
     flex-direction: column;
     width: 90%;
     align-self: center;
-}
-.buttons button{
-    margin-top: 15px;
-    border-radius: 20px;
 }
 label[for="word"]{
     font-size: 20px;
@@ -78,19 +177,24 @@ input{
     width: 100%;
 }
 #add{
-    display: inline-flex;
-    position: relative;
+    box-shadow: 0 15px 60px var(--light-correct);
+    background-color: var(--correct);
+    border-radius: var(--border-radius);
+    padding: 1vw 1.3vw;
+    color: white;
+    background-image: radial-gradient(farthest-side at 100% 10%, #90fceac0,rgba(0,0,0,0));
 }
-#add::after{
-    content: "";
-    position:absolute;
-    top:0;
-    left:0;
-    width: 90%;
-    height: 100%;
-    border-radius: 100%;
-    transform: rotate(345deg);
-    border: solid 1px #000;
+#add:hover{
+    box-shadow: 0 10px 60px var(--correct);
+}
+#cancel:hover{
+    box-shadow: 0 10px 40px rgba(4, 4, 5, 0.247);
+}
+#cancel{
+    box-shadow: 0 10px 75px rgba(49, 49, 49, 0.247);
+    border-radius: var(--border-radius);
+    background-color: white;
+    padding: 1vw;
 }
 #visualWarning{
     display: flex;
@@ -132,12 +236,45 @@ input{
     display: none;
 }
 /***********************media queries********************************/
+@media screen and (max-width:750px) {
+    .wrapper-page{
+        flex-direction: column;
+    }
+    ul li{
+        margin: 2vw 0 8px 0;
+    }
+    .advices{
+        max-width: 90%;
+        margin: 0 auto;
+    }
+    .buttons{
+        flex-direction: column;
+        margin-top: 4vw;
+    }
+    .modal{
+        width: 70vw;
+    }
+}
 @media screen and (max-width:500px) {
     .container button{
         padding: 2vw;
     }
-    .buttons button{
-        margin-top: 5vw;
+    .buttons{
+        margin-top: 3vw;
+    }
+    #add{
+        padding: 1.5vw 2vw;
+    }
+}
+@media screen and (max-width:300px) {
+    .wrapper-page{
+        height: 50vh;
+    }
+    .modal{
+        width: 75vw;
+    }
+    #add{
+        padding: 1.8vw 2.4vw;
     }
 }
 /****************************DARK MODE***********************************/

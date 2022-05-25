@@ -13,42 +13,47 @@
     <title>Hangman Game</title>
 </head>
 <body>
-    <main class="container">
-        <section class="munhieco">
-            <img src="../assets/munheco.png" alt="prueba de muñeco">
+    
+    <main>
+        <section class="wrapper-lifes">
+            <span class="lifes"></span>
+            <div class="particles hidden">
+                <span class="particle1"></span><span class="particle2"></span><span class="particle3"></span><span class="particle4"></span><span class="particle5"></span><span class="particle6"></span><span class="particle7"></span><span class="particle8">*</span><span class="particle9">+</span><span class="particle10">*</span>
+            </div>
+            <span class="party hidden">
+                <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+                <lord-icon
+                    src="https://cdn.lordicon.com/lupuorrc.json"
+                    trigger="loop"
+                    colors="primary:#032f32,secondary:#50bfc8"
+                    scale="55"
+                    style="width:40px;height:40px">
+                </lord-icon>
+            </span>
         </section>
-        <section class="playing">
-            <section class="containerWord" id="gameBoard">
-                <form>
-                    <input type="text" id="userText" autofocus pattern="[A-Z]">
-                </form>
+        <section class="container">
+            <section class="munhieco">
+                <img src="../assets/munheco.png" alt="prueba de muñeco">
             </section>
-            <section class="sectionError">
+            <section class="playing">
+                <section class="containerWord" id="gameBoard">
+                    <form>
+                        <input type="text" id="userText" autofocus pattern="[A-Z]">
+                    </form>
+                </section>
+                <section class="sectionError">
+                </section>
+                <section class="buttons">
+                    <button id="newWord">Nuevo Juego</button>
+                    <a href="../index.html"><button id="losing">Desistir</button></a>
+                </section>
             </section>
-            <section class="buttons">
-                <button id="newWord">Nuevo Juego</button>
-                <a href="../index.html"><button id="losing">Desistir</button></a>
-            </section>
+        </section>
+        <section class="madeForMe">
+            <p>Creado por Gloria Alicia García</p>
         </section>
     </main>
-    <section class="wrapper-lifes">
-        <span class="lifes"></span>
-        <div class="particles hidden">
-            <span class="particle1"></span><span class="particle2"></span><span class="particle3"></span><span class="particle4"></span><span class="particle5"></span><span class="particle6"></span><span class="particle7"></span><span class="particle8">*</span><span class="particle9">+</span><span class="particle10">*</span>
-        </div>
-        <span class="party hidden">
-            <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
-            <lord-icon
-                src="https://cdn.lordicon.com/lupuorrc.json"
-                trigger="loop"
-                colors="primary:#032f32,secondary:#50bfc8"
-                scale="55"
-                style="width:40px;height:40px">
-            </lord-icon>
-        </span>
-    </section>
     <script src="../scripts/gradient.js"></script>
-    <script src="../scripts/words.js"></script>
     <script src="../scripts/winOrLose.js"></script>
     <script src="../scripts/app.js"></script>
 </body>

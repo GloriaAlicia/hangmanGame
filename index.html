@@ -13,20 +13,26 @@
 </head>
 <body>
     <main>
-        <h1>Bienvenido</h1>
+        <section class="wrapper-page">
+            <article class="container">
+                <h1>Bienvenidos</h1>
+                <div class="buttons">
+                    <a href="./subpages/play.html" class="newGame">
+                        <button>Nuevo Juego</button>
+                        <span class="blurred"></span>
+                    </a>
+                    <button id="addWord">Agregar Nueva Palabra</button>
+                </div>
+            </article>
+        </section>
         <section class="advices">
             <h2>Advertencias</h2>
             <ul>
-                <li>Procura tocar la palabra vacia antes de escribir</li>
-                <li>Solo puede usar mayusculas</li>
-                <li>Por favor no use caracteres especiales</li>
+                <li>Si no puedes escribir da click en el espacio establecido para la palabra</li>
+                <li>No puede usar caracteres especiales al agregar palabras</li>
                 <li>Las palabras agregadas se guardaran en LocalStorage, por lo que recomiendo no borrar el cache, en algunos navegadores, provocara la eliminación de sus nuevas palabras</li>
             </ul>
         </section>
-        <article class="container">
-            <a href="./subpages/play.html"><button>Nuevo Juego</button></a>
-            <button id="addWord">Agregar Nueva Palabra</button>
-        </article>
     </main>
 
     <section class="windowModal hidden">
@@ -34,10 +40,10 @@
             <div class="content">
                 <label for="word">Agregar palabra</label>
                 <form>
-                    <input type="text" id="word" maxlength="10" placeholder="TEXTO EN MAYÚSCULAS" name="newWord">
+                    <input type="text" id="word" maxlength="10" placeholder="MAYÚSCULAS" name="newWord">
                 </form>
                 <p id="visualWarning"></p>
-                <div class="buttons">
+                <div class="buttons-modal">
                     <button id="add">Guardar</button>
                     <button id="cancel">Cancelar</button>
                 </div>
@@ -47,7 +53,6 @@
             <p id="visualAlerts"></p>
         </article>
     </section>
-    <script src="./scripts/words.js"></script>
     <script src="./scripts/gradient.js"></script>
     <script src="./scripts/addWord.js"></script>
 </body>
