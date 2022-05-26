@@ -44,6 +44,39 @@ function winOrLose(wrongs){
             playAgain()
         },1000)
     }
+//-------------muñeco----------------------
+    switch (lifes) {
+        case 9:
+            document.getElementById("first").style.display = "block";
+        break;
+        case 8:
+            document.querySelector(".second").style.display = "block";
+        break;
+        case 7:
+            document.querySelector(".third").style.display = "block";
+        break;
+        case 6:
+            document.querySelector(".four").style.display = "block";
+        break;
+        case 5:
+            document.querySelector(".five").style.display = "block";
+        break;
+        case 4:
+            document.querySelector(".six").style.display = "block";
+        break;
+        case 3:
+            document.querySelector(".seven").style.display = "block";
+        break;
+        case 2:
+            document.querySelector(".eight").style.display = "block";
+        break;
+        case 1:
+            document.querySelector(".nine").style.display = "block";
+        break;
+        case 0:
+            document.querySelector(".ten").style.display = "block";
+        break;
+    }
 }
 //-------------animacion ganar----------------------
 function animationWinner(where,positionX,positionY,name,duration){

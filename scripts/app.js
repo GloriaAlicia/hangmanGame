@@ -16,7 +16,6 @@ function newWord(){
 
 function playAgain(){
     let split = newWord();
-    dynamicWord(split);
     let antiqueLabel = document.querySelector("label");
     if(antiqueLabel != null){
         antiqueLabel.remove();
@@ -38,6 +37,18 @@ function playAgain(){
     emoji.classList.add("hidden");
     see.classList.remove("losing");
     see.style.fontSize = "2rem"
+
+    //----------muñeco-------------
+    document.getElementById("first").style.display = "none";
+    document.querySelector(".second").style.display = "none";
+    document.querySelector(".third").style.display = "none";
+    document.querySelector(".four").style.display = "none";
+    document.querySelector(".five").style.display = "none";
+    document.querySelector(".six").style.display = "none";
+    document.querySelector(".seven").style.display = "none";
+    document.querySelector(".eight").style.display = "none";
+    document.querySelector(".nine").style.display = "none";
+    document.querySelector(".ten").style.display = "none";
 }
 playAgain()
 //----------------------mostrar palabra en pantalla----------------------------------

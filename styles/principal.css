@@ -120,7 +120,7 @@ button{
 }
 @keyframes gradient {
     0%{left:0px;transform: scale(1.4);}
-    20%{transform: scale(2);}
+    20%{transform: scale(1.5);}
     40%{transform: scale(0.6);}
     70%{transform: scale(1.7);}
     100%{transform: scale(1);left:90%;}
@@ -129,6 +129,20 @@ button{
     display: flex;
     gap:10px;
     margin-top:1rem;
+    justify-content: end;
+}
+.advice-modal{
+    background-color: rgba(148, 148, 148, 0.164);
+    border-radius: var(--border-radius);
+    padding:1vw 0vw 1vw 1vw;
+    margin: 1.3vw 0 1vw 0;
+    font-family: "Work Sans";
+    font-style: italic;
+    display: flex;
+    align-items: center;
+}
+.advice-modal img{
+    padding-right: 0.5vw;
 }
 /****************window modal*********************/
 .windowModal{
@@ -140,9 +154,13 @@ button{
     bottom: 0%;
     left: 0%;
     right: 0%;
-    background: rgba(0, 0, 0, 0.356);
+    background: rgba(26, 26, 26, 0.356);
     transition: all 0.5s;
 }
+/* .oscuro .modal{
+    box-shadow:  -14px 14px 43px #252525,
+    14px -14px 43px #000;
+} */
 .modal{
     display: flex;
     justify-content: center;
@@ -152,10 +170,9 @@ button{
 
     background-color: white;
     border-radius: var(--border-radius);
-    box-shadow:  -14px 14px 43px #e0e0e0,
-    14px -14px 43px #ffffff4d;
+    box-shadow:  -15px 24px 55px #25252579;
     height: 35vh;
-    width: 60vw;
+    width: 55vw;
     padding: 3vw;
 }
 .content{
@@ -166,15 +183,20 @@ button{
 }
 label[for="word"]{
     font-size: 20px;
+    color: var(--black);
 }
-.content input{
+input{
     outline: 0;
     border: none;
     height: 2rem;
-    border-bottom: solid 1px #000;
+    border: solid 1px rgba(148, 148, 148, 0.719);
+    border-radius: var(--border-radius);
+    padding: 0.6vw 0vw 0.6vw 1vw;
+    width: 97%;
 }
-input{
-    width: 100%;
+input:focus{
+    border: solid 1px var(--black);
+    color: var(--black);
 }
 #add{
     box-shadow: 0 15px 60px var(--light-correct);
@@ -195,6 +217,7 @@ input{
     border-radius: var(--border-radius);
     background-color: white;
     padding: 1vw;
+    color: var(--black);
 }
 #visualWarning{
     display: flex;
@@ -277,8 +300,3 @@ input{
         padding: 1.8vw 2.4vw;
     }
 }
-/****************************DARK MODE***********************************/
-/* .oscuro .modal{
-    box-shadow:  -14px 14px 43px #252525,
-    14px -14px 43px #000;
-} */

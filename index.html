@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="./styles/normalize.css">
     <link rel="stylesheet" href="./styles/principal.css">
+    <link rel="shortcut icon" href="a.svg">
     <title>Principal</title>
 </head>
 <body>
@@ -38,14 +39,18 @@
     <section class="windowModal hidden">
         <article class="modal">
             <div class="content">
-                <label for="word">Agregar palabra</label>
                 <form>
+                    <label for="word">Agregar palabra</label>
+                    <p class="advice-modal">
+                        <img src="./assets/alert.svg" width="17">
+                        Máximo de 10 carácteres
+                    </p>
                     <input type="text" id="word" maxlength="10" placeholder="MAYÚSCULAS" name="newWord">
                 </form>
                 <p id="visualWarning"></p>
                 <div class="buttons-modal">
-                    <button id="add">Guardar</button>
                     <button id="cancel">Cancelar</button>
+                    <button id="add">Guardar</button>
                 </div>
             </div>
         </article>
