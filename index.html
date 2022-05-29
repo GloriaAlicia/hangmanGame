@@ -15,15 +15,17 @@
 <body>
     <main>
         <section class="wrapper-page">
-            <article class="container">
+            <article class="container-welcome">
                 <h1>Bienvenidos</h1>
+
                 <div class="buttons">
-                    <a href="./subpages/play.html" class="newGame">
+                    <div class="newGame button-blue">
                         <button>Nuevo Juego</button>
                         <span class="blurred"></span>
-                    </a>
-                    <button id="addWord">Agregar Nueva Palabra</button>
+                    </div>
+                    <button id="addWord" class="button-white">Agregar Nueva Palabra</button>
                 </div>
+
             </article>
         </section>
         <section class="advices">
@@ -31,25 +33,25 @@
             <ul>
                 <li>Si no puedes escribir da click en el espacio establecido para la palabra</li>
                 <li>No puede usar caracteres especiales al agregar palabras</li>
-                <li>Las palabras agregadas se guardaran en LocalStorage, por lo que recomiendo no borrar el cache, en algunos navegadores, provocara la eliminación de sus nuevas palabras</li>
+                <li>Recomiendo no borrar el cache, en algunos navegadores, provocara la eliminación de sus nuevas palabras</li>
             </ul>
         </section>
     </main>
 
-    <section class="windowModal hidden">
+    <section class="windowModal hidden" id="newWord">
         <article class="modal">
             <div class="content">
                 <form>
-                    <label for="word">Agregar palabra</label>
+                    <label for="word" class="titleModal">Agregar palabra</label>
                     <p class="advice-modal">
                         <img src="./assets/alert.svg" width="17">
-                        Máximo de 10 carácteres
+                        Máximo de 8 carácteres
                     </p>
-                    <input type="text" id="word" maxlength="10" placeholder="MAYÚSCULAS" name="newWord">
+                    <input type="text" id="word" maxlength="8" placeholder="MAYÚSCULAS" name="newWord">
                 </form>
                 <p id="visualWarning"></p>
                 <div class="buttons-modal">
-                    <button id="cancel">Cancelar</button>
+                    <button id="cancel" class="button-white">Cancelar</button>
                     <button id="add">Guardar</button>
                 </div>
             </div>
@@ -58,6 +60,36 @@
             <p id="visualAlerts"></p>
         </article>
     </section>
+
+    <section class="windowModal hidden" id="gameModes">
+        <article class="modal">
+            <div class="content">
+                <h3 class="titleModal">Modo de juego</h3>
+                <p class="advice-modal">Dependendo del modo de juego, tendrás diferente candidad de pistas, con difícil serán 0, normal 1 y fácil 3</p>
+
+                <div>
+                    <input type="radio" name="gameModes" id="hard">
+                    <label for="hard">difícil</label>
+                </div>
+                
+                <div>
+                    <input type="radio" name="gameModes" id="normal" checked>
+                    <label for="normal">normal</label>
+                </div>
+
+                <div>
+                    <input type="radio" name="gameModes" id="easy">
+                    <label for="easy">fácil</label>
+                </div>
+
+                <div class="buttons-modal">
+                    <button id="cancelPlay" class="button-white">Cancelar</button>
+                    <a href="./subpages/play.html" class="button-blue" id="saveMode">Jugar</a>
+                </div>
+            </div>
+        </article>
+    </section>
+
     <script src="./scripts/gradient.js"></script>
     <script src="./scripts/addWord.js"></script>
 </body>

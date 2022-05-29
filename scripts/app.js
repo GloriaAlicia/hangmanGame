@@ -1,43 +1,49 @@
 //----------------------escoger palabra al azar--------------------------
-    
 let buttonNewWord = document.getElementById("newWord");
 buttonNewWord.addEventListener("click",playAgain);
-let gameBoard = document.getElementById("gameBoard");
 let userText = document.getElementById("userText");
-let prewords = ["FELIZ","DIFICIL","FACIL","JAVASCRIPT","GUARDAR","AZAR","INGENIO","ASOMBRO","FUNCION","CLASES","OBJETO","APRENDER","ESFUERZO","PACIENCIA","ANALISIS"];
-let words = JSON.parse(localStorage.getItem("allWords")) || prewords;
          
-function newWord(){
+function newWord(words){
     let currentWord = words[Math.floor(Math.random()*words.length)];
-    console.log(currentWord);
     let split = Array.from(currentWord);
-    return split
+    if(words.length == 0){
+        showAlerts("Agrega más palabras para continuar");
+        setTimeout(()=>{
+            window.location.href = "../index.html";
+        },2000)
+    }
+    return split;
 }
 
 function playAgain(){
-    let split = newWord();
+    let prewords = ["PALABRA","MADERA","PYTHON","ESTANDAR","DIFICIL","MENOS","SABOR"];
+    let words = JSON.parse(localStorage.getItem("allWords")) || prewords;
+
+    let split = newWord(words);
     let antiqueLabel = document.querySelector("label");
     if(antiqueLabel != null){
         antiqueLabel.remove();
     }
-    gameBoard.appendChild(dynamicWord(split));
+    document.getElementById("gameBoard").appendChild(dynamicWord(split));
     let antiqueErrors = document.querySelectorAll(".sectionError p");
     antiqueErrors.forEach(element => {
         element.remove();
     })
+    document.getElementById("userText").disabled = false;
     let wrongs = [];
     userText.oninput = (event)=>{
         event.preventDefault();
         showLetters(split,wrongs);
-        winOrLose(wrongs);
+        winOrLose(wrongs,words,split);
     }
     see.textContent = "¿Empezamos?";
     see.classList.remove("win");
     particles.classList.add("hidden");
     emoji.classList.add("hidden");
     see.classList.remove("losing");
-    see.style.fontSize = "2rem"
 
+    let numberClue = JSON.parse(localStorage.getItem("numberOfClues")) || 1;
+    clue(split,numberClue);
     //----------muñeco-------------
     document.getElementById("first").style.display = "none";
     document.querySelector(".second").style.display = "none";
@@ -69,14 +75,11 @@ function dynamicWord(split){
         return letters;
 }
       
-//-------------------------mostrar letras--------------------------------
-
+//------------------mostrar letras correctas e incorrectas---------------------------
 function showLetters(split,wrongs){
     let writing = userText.value.toUpperCase();
     let actualId = 0;
-
     let letterNoIncluded = 0;
-    let sectionError = document.querySelector(".sectionError");
 
     for (let i = 0; i < split.length; i++) {
         let actualLetter = split[i];
@@ -90,10 +93,32 @@ function showLetters(split,wrongs){
                 wrongs.push(writing);
                 let errorLetter = document.createElement("p");
                 errorLetter.textContent = writing;
-                sectionError.appendChild(errorLetter);
+                document.querySelector(".sectionError").appendChild(errorLetter);
             }
         }
         userText.value = "";
+        actualId++
+    }
+}
+//------------------pista---------------------
+function clue(split,number){
+    let actualId = 0;
+    let clues = [];
+    while (clues.length < number) {
+        let randomLetter = split[Math.floor(Math.random()*split.length)];
+        if(!clues.includes(randomLetter)){
+            clues.push(randomLetter);
+        }
+    }
+    for (let i = 0; i < split.length; i++) {
+        let actualLetter = split[i];
+        for (let i = 0; i < clues.length; i++) {
+            const everyClue = clues[i];
+            if(everyClue == actualLetter){
+                let sumLetter = document.getElementById(actualId);
+                sumLetter.textContent = actualLetter;
+            }
+        }
         actualId++
     }
 }

@@ -3,17 +3,6 @@ body{
     outline-width: 0;
     border: none;
 }
-:root{
-    --black:#032f32;
-    --correct:#50bfc8;
-    --light-correct: #50bec86e;
-    --primary-color: #ee8475;
-    --warning: #e25b45;
-    --light:#fac172;
-    --sunset:#fac17280;
-    --second-light:#ee75bc8e;
-    --border-radius:10px;
-}
 main{
     background-image: radial-gradient(farthest-side at 100% 30%, var(--light-correct)0%,rgba(0,0,0,0)100%);
 }
@@ -51,7 +40,7 @@ main{
     display: flex;
     flex-wrap: wrap;
     height: 30px;
-    justify-content: center;
+    /* justify-content: center; */
     margin-bottom: 3vh;
     padding: 1vw 0;
 }
@@ -82,7 +71,7 @@ main{
     flex-wrap: wrap;
     width: 90%;
     justify-content: center;
-    padding: 10px 0;
+    /* padding: 10px 0; */
 }
 .sectionError p{
     color: var(--black);
@@ -90,12 +79,14 @@ main{
     margin: 0;
 }
 input, form{
-    height: 1px;
+    height: 0px;
 }
 /*******************hangman*********************/
 .munhieco svg{
     width: 100%;
     height: 48vh;
+    border-radius: var(--border-radius);
+    background-image: radial-gradient(farthest-side at 0% 30%, var(--light-correct),rgba(255, 255, 255, 0.226));
 }
 #first {
     fill:var(--black);
@@ -114,37 +105,7 @@ input, form{
 .eight {fill:#50bfc8}
 .nine {fill:#50bec8b0}
 .ten {fill:#50bec8b0}
-/***********buttons******************/
-button{
-    border: none;
-    cursor: pointer;
-    background-color: transparent;
-    padding: 1vw;
-}
-.buttons{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-#newWord{
-    color: var(--black);
-    box-shadow: 0 25px 60px var(--light-correct);
-    background-color: var(--correct);
-    border-radius: var(--border-radius);
-    transition: all 0.3s ease-in-out;
-}
-#newWord:hover{
-    box-shadow: 0 25px 60px var(--correct);
-}
-#losing{
-    color: var(--black);
-    background-color: white;
-    border-radius: var(--border-radius);
-    box-shadow: 0 25px 40px #e7e7e7;
-    transition: all 0.6s;
-    font-style: italic;
-}
+/***********buttons*****************************************************/
 #losing:hover{
     box-shadow: 0 30px 30px #e7e7e7;
 }
@@ -165,6 +126,7 @@ button{
 .lifes{
     font-size: 2rem;
     align-items: center;
+    text-align: center;
 }
 .win{
     position: relative;
@@ -203,14 +165,7 @@ button{
     background-color: transparent;
     border: solid 1px var(--black);
 }
-.particle2{
-    width: 0.5rem;
-    height: 1rem;
-    border-radius: 40%;
-    background-color: transparent;
-    border: solid 1px var(--black);
-}
-.particle3{
+.particle2, .particle3{
     width: 1rem;
     height: 1rem;
     border-radius: 40%;

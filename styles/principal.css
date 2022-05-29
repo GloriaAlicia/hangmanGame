@@ -9,6 +9,8 @@
     --light:#fac172;
     --second-light:#ee83758e;
     --border-radius:10px;
+    --gray: rgba(148, 148, 148, 0.719);
+    --gray-disabled:rgba(148, 148, 148, 0.164);
 }
 h1{
     font-family: 'Work Sans';
@@ -47,7 +49,7 @@ ul li{
     color: var(--black);
 }
 /***********************buttons************************/
-.container{
+.container-welcome{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -60,8 +62,7 @@ button{
     cursor: pointer;
     background-color: transparent;
 }
-.container button{
-    padding: 1vw;
+.container-welcome button{
     min-width: 25vw;
 }
 .buttons{
@@ -70,40 +71,36 @@ button{
     align-items: center;
     gap: 10px;
 }
-#addWord{
+.button-white{
     color: var(--black);
     background-color: white;
     border-radius: var(--border-radius);
-    box-shadow: 0 18px 40px #e7e7e7;
     transition: all 0.6s;
+    font-style: italic;
+    padding: 1vw;
+    box-shadow: 0 18px 40px #dbdbdb;
 }
 #addWord:hover{
     position: relative;
 }
-.newGame{
-    box-shadow: 0 18px 60px var(--correct);
-    position: relative;
+.button-blue{
+    box-shadow: 0 22px 60px var(--correct);
     background-color: var(--correct);
     border-radius: var(--border-radius);
+    padding: 1vw;
+    color: white;
+}
+.button-blue:hover{
+    box-shadow: 0 18px 60px var(--correct);
+}
+.newGame{
+    position: relative;
 }
 .newGame button{
     color: white;
 }
 .newGame:hover{
     font-weight: bold;
-}
-.newGame::after{
-    content: "";
-    position:absolute;
-    width:20px;
-    height:20px;
-    border-radius:50%;
-    background-color: var(--blue-blurred);
-    box-shadow: 0 0px 50px var(--blue-blurred), 
-                0 0px 20px var(--blue-blurred), 
-                0 0px 10px var(--blue-blurred),
-                 0 0px 10px var(--blue-blurred);
-    animation: gradient 2.8s infinite;
 }
 .blurred{
     position:absolute;
@@ -132,7 +129,7 @@ button{
     justify-content: end;
 }
 .advice-modal{
-    background-color: rgba(148, 148, 148, 0.164);
+    background-color: var(--gray-disabled);
     border-radius: var(--border-radius);
     padding:1vw 0vw 1vw 1vw;
     margin: 1.3vw 0 1vw 0;
@@ -143,6 +140,30 @@ button{
 }
 .advice-modal img{
     padding-right: 0.5vw;
+}
+/****************modos de juego*****************************************/
+.gameModes{
+    margin-top: 1vw;
+    display: flex;
+    justify-content: center;
+}
+input[type="radio"]{
+    display: none;
+}
+input[type="radio"] + label{
+    color: var(--gray);
+    padding: 0.5vw 0;
+    margin-bottom: 1vw;
+    font-size: 1.2rem;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+input[type="radio"]:checked + label{
+    background-color: var(--light-correct);
+    color: var(--black);
+    border-radius: var(--border-radius);
 }
 /****************window modal*********************/
 .windowModal{
@@ -157,10 +178,6 @@ button{
     background: rgba(26, 26, 26, 0.356);
     transition: all 0.5s;
 }
-/* .oscuro .modal{
-    box-shadow:  -14px 14px 43px #252525,
-    14px -14px 43px #000;
-} */
 .modal{
     display: flex;
     justify-content: center;
@@ -171,25 +188,26 @@ button{
     background-color: white;
     border-radius: var(--border-radius);
     box-shadow:  -15px 24px 55px #25252579;
-    height: 35vh;
+    /* height: 35vh; */
     width: 55vw;
     padding: 3vw;
 }
 .content{
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 95%;
     align-self: center;
 }
-label[for="word"]{
+.titleModal{
     font-size: 20px;
     color: var(--black);
+    margin: 0.5vh 0 1vh 0;
 }
 input{
     outline: 0;
     border: none;
     height: 2rem;
-    border: solid 1px rgba(148, 148, 148, 0.719);
+    border: solid 1px var(--gray-disabled);
     border-radius: var(--border-radius);
     padding: 0.6vw 0vw 0.6vw 1vw;
     width: 97%;
@@ -210,14 +228,7 @@ input:focus{
     box-shadow: 0 10px 60px var(--correct);
 }
 #cancel:hover{
-    box-shadow: 0 10px 40px rgba(4, 4, 5, 0.247);
-}
-#cancel{
-    box-shadow: 0 10px 75px rgba(49, 49, 49, 0.247);
-    border-radius: var(--border-radius);
-    background-color: white;
-    padding: 1vw;
-    color: var(--black);
+    box-shadow: 0 10px 40px rgba(51, 51, 51, 0.247);
 }
 #visualWarning{
     display: flex;
@@ -238,22 +249,24 @@ input:focus{
     justify-content: center;
     align-items: center;
 }
+.alerts p{
+    font-family: "Work Sans";
+    font-style: italic;
+    font-size: 1.3rem;
+    text-align: center;
+}
+.withoutWords{
+    top: 20%;
+    left: 25%;
+    bottom: 50%;
+}
 @keyframes show{
     0%{opacity: 0%; transform: scale(0);}
     100%{opacity: 100%; transform: scale(1);}
 }
 .show{
     animation-name: show;
-    animation-duration: 0.38s;
-}
-.alerts{
-    background-color: #fff;
-}
-.alerts p{
-    font-family: "Work Sans";
-    font-style: italic;
-    font-size: 1.3rem;
-    text-align: center;
+    animation-duration: 0.3s;
 }
 .hidden{
     display: none;

@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="../styles/normalize.css">
     <link rel="stylesheet" href="../styles/playStyles.css">
+    <link rel="stylesheet" href="../styles/principal.css">
     <link rel="shortcut icon" href="../a.svg">
     <title>Hangman Game</title>
 </head>
@@ -37,7 +38,7 @@
                 viewBox="0 0 3300 2550"
                 xmlns:xlink="http://www.w3.org/1999/xlink">
 
-            <g id="Capa_x0020_1">
+            <g id="capa">
                 <metadata id="madeForMe"/>
                 <path class="third" d="M731 143l1282 0c23,0 41,18 41,40 0,23 -18,41 -41,41 -1,0 -1,0 -2,0l2 0 0 0 -1206 0c-20,2 -36,19 -36,40l0 397 -81 0 0 -437 0 -41c0,-22 18,-40 41,-40z"/>
                 <path class="second" d="M771 274l0 2011c0,22 19,40 41,40l0 20 -41 0 0 62 -35 0 0 -39 -46 0 0 -2094 81 0z"/>
@@ -61,15 +62,20 @@
                         <input type="text" id="userText" autofocus pattern="[A-Z]">
                     </form>
                 </section>
+
                 <section class="sectionError">
                 </section>
+
                 <section class="buttons">
-                    <button id="newWord">Nuevo Juego</button>
-                    <a href="../index.html"><button id="losing">Desistir</button></a>
+                    <button id="newWord" class="button-blue">Nuevo Juego</button>
+                    <a href="../index.html"><button class="button-white">Desistir</button></a>
                 </section>
+
             </section>
         </section>
-        
+        <article class="windowModal alerts withoutWords hidden">
+            <p id="visualAlerts"></p>
+        </article>
         <section class="madeForMe">
             <p>Creado por Gloria Alicia García</p>
         </section>

@@ -2,10 +2,11 @@ let see = document.querySelector(".lifes");
 let particles = document.querySelector(".particles");
 let emoji = document.querySelector(".party");
 
-function winOrLose(wrongs){
+function winOrLose(wrongs,words,split){
     let lifes = 10-wrongs.length;
     let correctLetter = document.querySelectorAll(".underscore");
     let correct = 0;
+    let actualWord = split.join("");
 
     for (let i = 0; i < correctLetter.length; i++) {
         see.textContent = lifes;
@@ -19,11 +20,13 @@ function winOrLose(wrongs){
             particles.classList.remove("hidden");
             emoji.classList.remove("hidden");
             see.style.fontSize = "2rem"
+            document.getElementById("userText").disabled = true;
 
-            setTimeout(()=>{
-                playAgain()
-            },3000)
-
+            //-------borrar las palabras ganadas---------
+            let search = words.findIndex(element => actualWord == element);
+            words.splice(search,1);
+            localStorage.setItem("allWords",JSON.stringify(words));
+            //-------ejecutar la animación ganar---------
             document.querySelector(".particle1").appendChild(animationWinner(".particle1","30px","-100px","moveOn1","1s"));
             document.querySelector(".particle2").appendChild(animationWinner(".particle2","-100px","-200px","moveOn2","1.5s"));
             document.querySelector(".particle3").appendChild(animationWinner(".particle3","10px","-70px","moveOn3","2.7s"));
@@ -38,44 +41,31 @@ function winOrLose(wrongs){
     }
 //-------------perder------------------------
     if(lifes == 0){
-        // let palabra = "con "+ newWord().join("");
-        see.textContent = "Perdiste"
-        setTimeout(()=>{
-            playAgain()
-        },1000)
+        see.textContent = "Perdiste con" + actualWord;
+        document.getElementById("userText").disabled = true;
     }
 //-------------muñeco----------------------
     switch (lifes) {
         case 9:
-            document.getElementById("first").style.display = "block";
-        break;
+            document.getElementById("first").style.display = "block"; break;
         case 8:
-            document.querySelector(".second").style.display = "block";
-        break;
+            document.querySelector(".second").style.display = "block"; break;
         case 7:
-            document.querySelector(".third").style.display = "block";
-        break;
+            document.querySelector(".third").style.display = "block"; break;
         case 6:
-            document.querySelector(".four").style.display = "block";
-        break;
+            document.querySelector(".four").style.display = "block"; break;
         case 5:
-            document.querySelector(".five").style.display = "block";
-        break;
+            document.querySelector(".five").style.display = "block"; break;
         case 4:
-            document.querySelector(".six").style.display = "block";
-        break;
+            document.querySelector(".six").style.display = "block"; break;
         case 3:
-            document.querySelector(".seven").style.display = "block";
-        break;
+            document.querySelector(".seven").style.display = "block"; break;
         case 2:
-            document.querySelector(".eight").style.display = "block";
-        break;
+            document.querySelector(".eight").style.display = "block"; break;
         case 1:
-            document.querySelector(".nine").style.display = "block";
-        break;
+            document.querySelector(".nine").style.display = "block"; break;
         case 0:
-            document.querySelector(".ten").style.display = "block";
-        break;
+            document.querySelector(".ten").style.display = "block"; break;
     }
 }
 //-------------animacion ganar----------------------
@@ -83,6 +73,5 @@ function animationWinner(where,positionX,positionY,name,duration){
     const keyFrames = document.createElement("style");
 
     keyFrames.textContent = "@keyframes "+ name +" { from { left: 70px; top: 0;} to { left: "+ positionX +"; top: "+ positionY +"; transform: scale(0);} }      "+ where +" {animation: "+ name +" "+ duration +" ease infinite;}"
-
     return keyFrames;
 }
