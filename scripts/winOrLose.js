@@ -41,7 +41,7 @@ function winOrLose(wrongs,words,split){
     }
 //-------------perder------------------------
     if(lifes == 0){
-        see.textContent = "Perdiste con" + actualWord;
+        see.textContent = "Perdiste con " + actualWord;
         document.getElementById("userText").disabled = true;
     }
 //-------------muñeco----------------------
